@@ -32,6 +32,8 @@ import {BlockService} from '../../services/block.service';
 import {AccountIndex} from '../../classes/account-index.class';
 import {Subscription} from 'rxjs';
 import {AppConfigService} from '../../services/app-config.service';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-analytics-search',
@@ -61,7 +63,8 @@ export class AnalyticsSearchComponent implements OnInit, OnDestroy {
     private accountService: AccountService,
     private accountIndexService: AccountIndexService,
     private blockService: BlockService,
-    private appConfigService: AppConfigService
+    private appConfigService: AppConfigService,
+    private httpClient: HttpClient
   ) { }
 
   ngOnInit() {
@@ -85,6 +88,9 @@ export class AnalyticsSearchComponent implements OnInit, OnDestroy {
 
     // Strip whitespace from search text
     this.currentSearchQuery = this.searchQuery.trim();
+    // console.log('search sachin:')
+    // const sam = this.getPosts()
+    // console.log('search sa:', sam)
 
     if (this.currentSearchQuery !== '') {
 
@@ -115,17 +121,14 @@ export class AnalyticsSearchComponent implements OnInit, OnDestroy {
 
       // Search accounts
       this.loadingCount++;
-      this.accountService.get(this.currentSearchQuery).subscribe(account => {
-        this.account = account;
-      }, error => {
-        this.loadingCount--;
-      }, () => {
+      let data;
+    
         this.router.navigate(
-          [this.networkURLPrefix, 'account', this.account.attributes.address],
+          [this.networkURLPrefix, 'account', this.currentSearchQuery],
           { replaceUrl: this.replaceUrl }
           );
         this.loadingCount--;
-      });
+      
 
       // Search block
       if (this.currentSearchQuery.startsWith('0x') || +this.currentSearchQuery) {
@@ -141,8 +144,13 @@ export class AnalyticsSearchComponent implements OnInit, OnDestroy {
           this.loadingCount--;
         });
       }
+
+
+  
     }
   }
+
+
 
   ngOnDestroy() {
     // Will clear when component is destroyed e.g. route is navigated away from.

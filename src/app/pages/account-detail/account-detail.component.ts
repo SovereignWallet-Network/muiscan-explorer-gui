@@ -38,6 +38,7 @@ import {EventService} from '../../services/event.service';
 import {BlockTotal} from '../../classes/block-total.class';
 import {BlockTotalService} from '../../services/block-total.service';
 import {Chart} from 'angular-highcharts';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-account-detail',
@@ -86,10 +87,16 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
   public accountLifecyclePage = 1;
 
   public accountId: string;
+  public balance: any;
+  public data: any;
+  public trnx: any;
+  public datas: any;
+
 
   public account$: Observable<Account>;
 
   public resourceNotFound: boolean;
+  public taleFound: boolean;
 
   public networkURLPrefix: string;
   public networkTokenDecimals: number;
@@ -112,13 +119,17 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
     private accountIndexService: AccountIndexService,
     private appConfigService: AppConfigService,
     private activatedRoute: ActivatedRoute,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private httpClient: HttpClient
+
   ) { }
 
   ngOnInit() {
-
     this.resourceNotFound = false;
+    this.taleFound = false;
+
     this.currentTab = 'transactions';
+    
 
     this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
       if ([
@@ -195,14 +206,36 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
         series: []
       };
 
+      let bals;
       this.account$ = this.activatedRoute.paramMap.pipe(
         switchMap((params: ParamMap) => {
           this.accountId = params.get('id');
+          this.httpClient.get(`https://registerdid.metabit.exchange:8443/getAccountDetails?did=${this.accountId}`).subscribe((data) => {
+            this.balance = data;
+            //console.log('api1',data)
+            if(this.balance.address == null){
+              this.taleFound = true;
+              console.log('access granted', this.taleFound)
+
+            }
+           },error => {
+            this.taleFound = true;
+            
+          })
+          this.httpClient.get(`http://explorer.metabit.exchange/api/v1/balances/transfer_history/${this.accountId}`).subscribe((datas) => {
+            //console.log('api2',datas)
+            this.trnx = datas;
+            
+          })
           return this.accountService.get(params.get('id'));
         })
       );
 
+    
+
+
       this.account$.subscribe(val => {
+
         if (val.attributes.address) {
 
           this.accountId = val.attributes.address;
