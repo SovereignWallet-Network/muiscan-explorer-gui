@@ -12,7 +12,7 @@
                 </a>
                 <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                   <a class="navbar-link">
-                    {{ 'NavBar.Chain' | translate }}
+                    {{ 'Blocks & Transactions' }}
                   </a>
                   <div class="navbar-dropdown" (click)="toggleSubmenus()">
                     <a class="navbar-item" routerLink="/{{ networkId }}/block">
@@ -33,7 +33,7 @@
                   </div>
                 </div>
 
-                <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
+                <!-- <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                   <a class="navbar-link">
                     {{ 'NavBar.Accounts' | translate }}
                   </a>
@@ -75,7 +75,7 @@
                       {{ 'NavBar.item_Transfers' | translate }}
                     </a>
                   </div>
-                </div>
+                </div> -->
 
                 <div *ngIf="!singleNetworkVersion" class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                   <a class="navbar-link">
@@ -91,7 +91,7 @@
                   </div>
                 </div>
 
-                <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
+                <!-- <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                   <a class="navbar-link">
                     {{ 'NavBar.Runtime' | translate }}
                   </a>
@@ -107,7 +107,7 @@
                       {{ 'NavBar.item_Upgrade_history' | translate }}
                     </a>
                   </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
