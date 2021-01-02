@@ -29,6 +29,7 @@ module.exports = {
       $ENV: {
         DISCOVERY_API_URL: JSON.stringify(process.env.DISCOVERY_API_URL),
         API_URL: JSON.stringify(process.env.API_URL),
+        SDK_API_URL: JSON.stringify(process.env.SDK_API_URL),
         NETWORK_NAME: JSON.stringify(process.env.NETWORK_NAME),
         NETWORK_ID: JSON.stringify(process.env.NETWORK_ID),
         NETWORK_TYPE: JSON.stringify(process.env.NETWORK_TYPE),

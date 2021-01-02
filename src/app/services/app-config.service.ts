@@ -70,6 +70,7 @@ export class AppConfigService {
   public networkName: string;
 
   private networkApiURLRoot: string;
+  private networkSdkApiURLRoot: string;
 
   constructor(
     private blockService: BlockService,
@@ -163,6 +164,7 @@ export class AppConfigService {
 
       this.networkName = network.attributes.name;
       this.networkApiURLRoot = network.attributes.api_url_root;
+      this.networkSdkApiURLRoot = network.attributes.sdk_api_url_root;
 
 
       this.currentNetwork.next(network);
@@ -174,5 +176,9 @@ export class AppConfigService {
 
   public getNetworkApiUrlRoot(): string {
     return this.networkApiURLRoot;
+  }
+
+  public getNetworkSdkApiUrlRoot(): string {
+    return this.networkSdkApiURLRoot;
   }
 }
