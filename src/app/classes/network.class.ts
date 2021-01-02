@@ -30,6 +30,7 @@ export class Network extends Resource {
         network_type: 'network_type',
         chain_type: 'chain_type',
         api_url_root: 'api_url_root',
+        sdk_api_url_root: 'sdk_api_url_root',
         color_code: 'color_code',
         token_decimals: 0,
         token_symbol: 'token_symbol'

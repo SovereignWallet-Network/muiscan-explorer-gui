@@ -25,6 +25,7 @@ declare var $ENV: Env;
 interface Env {
   DISCOVERY_API_URL: string;
   API_URL: string;
+  SDK_API_URL: string;
   NETWORK_NAME: string;
   NETWORK_ID: string;
   NETWORK_TYPE: string;

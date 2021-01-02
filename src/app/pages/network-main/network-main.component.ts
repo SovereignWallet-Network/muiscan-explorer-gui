@@ -93,6 +93,7 @@ export class NetworkMainComponent implements OnInit, OnDestroy {
 
       const network = new Network();
       network.attributes.api_url_root = environment.jsonApiRootUrl;
+      network.attributes.sdk_api_url_root = environment.jsonSdkApiRootUrl;
       network.attributes.name = environment.network.name;
       network.attributes.network_id = environment.network.networkId;
       network.attributes.token_decimals = environment.network.tokenDecimals;

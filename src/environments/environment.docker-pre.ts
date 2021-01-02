@@ -24,6 +24,7 @@ export const environment = {
   production: true,
   jsonApiDiscoveryRootUrl: null,
   jsonApiRootUrl: $ENV.API_URL,
+  jsonSdkApiRootUrl: $ENV.SDK_API_URL,
   network: {
     name: $ENV.NETWORK_NAME,
     networkId: $ENV.NETWORK_ID,
