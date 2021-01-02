@@ -26,7 +26,7 @@ import {Extrinsic} from '../../classes/extrinsic.class';
 import {Event} from '../../classes/event.class';
 import {BalanceTransferService} from '../../services/balance-transfer.service';
 import {ExtrinsicService} from '../../services/extrinsic.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute,Router, ParamMap} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
 import {Account} from '../../classes/account.class';
 import {AccountService} from '../../services/account.service';
@@ -124,6 +124,34 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
 
   ) { }
 
+
+  // ngDoCheck() {
+
+  //   this.account$ = this.activatedRoute.paramMap.pipe(
+  //     switchMap((params: ParamMap) => {
+  //       if(params.get('id') !== this.accountId){
+  //         this.accountId = params.get('id');
+  //         return this.accountService.get(params.get('id'));
+
+  //       }
+  //       console.log('loose:', this.accountId)
+  //     })
+  //   );
+
+  
+
+
+    // if(this.accountId !== this.accountId){
+    //   console.log('do check')
+
+    // }else{
+    //   console.log('no need', this.accountId)
+
+    // }
+
+  
+  //}
+
   ngOnInit() {
     this.resourceNotFound = false;
     this.taleFound = false;
@@ -210,6 +238,7 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
       this.account$ = this.activatedRoute.paramMap.pipe(
         switchMap((params: ParamMap) => {
           this.accountId = params.get('id');
+          console.log('trident:', this.accountId)
           this.httpClient.get(`https://registerdid.metabit.exchange:8443/getAccountDetails?did=${this.accountId}`).subscribe((data) => {
             this.balance = data;
             //console.log('api1',data)

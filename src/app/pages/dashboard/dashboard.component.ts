@@ -107,7 +107,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.balanceTransferService.all({
       page: {number: 0}
-    }).subscribe(balanceTransfers => (this.balanceTransfers = balanceTransfers));
+    }).subscribe(balanceTransfers => {
+      this.balanceTransfers = balanceTransfers
+      // console.log('samy:',this.balanceTransfers)
+
+    });
+
 
   }
 

@@ -48,11 +48,11 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account">
                           <td width="15%">{{ 'extrinsic-table.Address' | translate }}</td>
-                          <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.account?.attributes.address }}" class="address-mobile-format"><app-address [account]="extrinsic.attributes.account"></app-address></a></td>
+                          <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.account?.attributes.address }}" class="address-mobile-format">{{extrinsic.attributes.account}}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && !extrinsic.attributes.account && extrinsic.attributes.address">
                           <td width="15%">{{ 'extrinsic-table.Address' | translate }}</td>
-                          <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
+                          <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-mobile-format">{{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && !extrinsic.attributes.account && extrinsic.attributes.account_index">
                           <td width="15%">{{ 'extrinsic-table.Account Index' | translate }}</td>

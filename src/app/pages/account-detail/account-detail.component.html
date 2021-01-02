@@ -30,7 +30,7 @@
       <div class="card events-card" *ngIf="!taleFound">
           <header class="card-header">
               <div class="card-header-title">
-                <app-identicon [accountId]="account.attributes.id" size="64"></app-identicon><div class="address-mobile-format">{{ account.attributes.address }}</div>
+                <!-- <app-identicon [accountId]="account.attributes.id" size="64"></app-identicon><div class="address-mobile-format">{{ account.attributes.address }}</div> -->
               </div>
               <a  class="card-header-icon" aria-label="more options">
              <span class="icon"><i class="fa fa-id-card fa-2x"></i></span>
@@ -112,8 +112,8 @@
                             </td>
                           </tr>
                           <tr *ngIf="!taleFound">
-                            <td>Mui Balance</td>
-                            <td>{{ balance.balance }} MUI</td>
+                            <td>MetaMUI Balance</td>
+                            <td>{{ balance.balance }} MetaMUI</td>
 
     
                           </tr>
@@ -350,7 +350,7 @@
                           <th>SENDER</th>
                           <th>RECEIVER</th>
                           <th>AMOUNT</th>
-                          <th>DATE</th>
+                          <th>TIMESTAMP</th>
                           <!-- <th class="is-hidden-mobile">{{ 'AccountDetail.Success' | translate }}</th> -->
                           <th></th>
                         </tr>
@@ -361,8 +361,12 @@
                                 <i *ngIf="extrinsic.attributes.sender.attributes.address" class="fa fa-file-signature"></i>
                                 <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                               </td>
-                              <td><a routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.attributes.sender.attributes.address}}</a></td>
+
+                              <!-- <td><a routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.attributes.sender.attributes.address}}</a></td>
                               <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.destination.attributes.address}}</a></td>
+                          -->
+                              <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.sender.attributes.address }}">{{ extrinsic.attributes.sender.attributes.address}}</a></td>
+                              <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.destination.attributes.address }}">{{ extrinsic.attributes.destination.attributes.address}}</a></td>
                               <td>{{ formatBalance(extrinsic.attributes.value) }}</td>
                               <td>{{ extrinsic.attributes.datetime }}</td>
                               <td class="is-hidden-mobile">
