@@ -239,12 +239,7 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
         switchMap((params: ParamMap) => {
           console.log('jsonSdkApiRootUrl: ',this.appConfigService.getNetworkSdkApiUrlRoot())
           this.accountId = params.get('id');
-<<<<<<< HEAD
-          console.log('trident:', this.accountId)
-          this.httpClient.get(`https://registerdid.metabit.exchange:8443/getAccountDetails?did=${this.accountId}`).subscribe((data) => {
-=======
           this.httpClient.get(`${this.appConfigService.getNetworkSdkApiUrlRoot()}/getAccountDetails?did=${this.accountId}`).subscribe((data) => {
->>>>>>> d2e5114a0a4af13262bc03a51e89581e28a49baf
             this.balance = data;
             //console.log('api1',data)
             if(this.balance.address == null){
