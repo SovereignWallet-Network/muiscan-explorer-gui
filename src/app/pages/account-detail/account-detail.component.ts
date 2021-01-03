@@ -363,6 +363,8 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
   }
 
   public formatBalance(balance: number) {
+
+    console.log('test', balance)
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
 

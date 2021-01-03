@@ -24,6 +24,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Extrinsic} from '../../classes/extrinsic.class';
 import {Location} from '@angular/common';
 import {ExtrinsicService} from '../../services/extrinsic.service';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-extrinsic-table',
@@ -40,14 +42,37 @@ export class ExtrinsicTableComponent implements OnInit {
   @Input() networkTokenSymbol: string ;
   @Input() title: string;
 
+  public balance: any;
+  public data: any;
+
+  public taleFound: boolean;
+
   constructor(
     private location: Location,
-    private extrinsicService: ExtrinsicService
+    private extrinsicService: ExtrinsicService,
+    private httpClient: HttpClient
+
   ) { }
 
   ngOnInit() {
+    this.taleFound = false;
+
     if (this.extrinsicId) {
-       this.extrinsicService.get(this.extrinsicId).subscribe(extrinsic => this.extrinsic = extrinsic);
+      console.log('hey', this.extrinsicId)
+
+       this.extrinsicService.get(this.extrinsicId).subscribe(extrinsic => {
+         this.extrinsic = extrinsic
+       });
+
+    // this.httpClient.get(`https://registerdid.metabit.exchange:8443/getDIDFromAccID?accid=5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY`).subscribe((data) => {
+    //   this.balance = data;
+    //   console.log('api1',this.balance)
+    //   this.taleFound = true;
+    //  },error => {
+    //   this.taleFound = true;
+      
+    // })
+
     }
   }
 
@@ -58,6 +83,8 @@ export class ExtrinsicTableComponent implements OnInit {
   public formatBalance(balance: number) {
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
+
+
 
   paramName(name: string) {
 
