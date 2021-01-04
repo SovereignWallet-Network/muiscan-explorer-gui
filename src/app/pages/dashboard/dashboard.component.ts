@@ -128,6 +128,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
+  public formatName(balance) {
+
+    console.log('test', balance)
+    console.log(Array(balance.length+1).join('*'));
+    let dat = 'did:ssid:'+ Array(balance.length+1).join('*');
+
+    return dat
+
+  }
+
   ngOnDestroy() {
     // Will clear when component is destroyed e.g. route is navigated away from.
     this.blockUpdateSubsription.unsubscribe();

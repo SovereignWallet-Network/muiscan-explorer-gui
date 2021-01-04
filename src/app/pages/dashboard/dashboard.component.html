@@ -176,7 +176,7 @@
                                           <span class="icon">
                                               <i class="fa fa-address-card" aria-hidden="true"></i>
                                           </span>
-                                          {{ balanceTransfer.attributes.sender.attributes.address }}
+                                          {{ formatName(balanceTransfer.attributes.sender.attributes.address) }}
                                         </a>
                                       </td>
                                       <td>
@@ -184,7 +184,7 @@
                                           <span class="icon">
                                               <i class="fa fa-address-card" aria-hidden="true"></i>
                                           </span>
-                                          {{ balanceTransfer.attributes.destination.attributes.address}}
+                                          {{ formatName(balanceTransfer.attributes.destination.attributes.address)}}
                                         </a>
                                       </td>
                                       <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>

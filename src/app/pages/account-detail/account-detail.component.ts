@@ -364,9 +364,21 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
 
   public formatBalance(balance: number) {
 
-    console.log('test', balance)
+  //  console.log('test', balance)
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
+
+  public formatName(balance) {
+
+    console.log('test', balance)
+    console.log(Array(balance.length+1).join('*'));
+    let dat = 'did:ssid:'+ Array(balance.length+1).join('*');
+
+    return dat
+
+  }
+
+ 
 
   public getTransactions(page: number) {
     this.extrinsicService.all({
