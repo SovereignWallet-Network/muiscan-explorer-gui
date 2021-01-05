@@ -128,13 +128,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
-  public formatName(balance) {
+  public formatName(text) {
 
-    console.log('test', balance)
-    console.log(Array(balance.length+1).join('*'));
-    let dat = 'did:ssid:'+ Array(balance.length+1).join('*');
+    console.log('test', text)
+    var threshold = 11; // Start replacing with * after this value
+    if (text.length > threshold) {
+      text = text.replace(new RegExp(".(?=.{0," + (text.length-threshold-1) + "}$)", "g"), '*');
+    }
 
-    return dat
+    return text
 
   }
 
