@@ -341,6 +341,14 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
   public formatName(text) {
 
     var threshold = 11; // Start replacing with * after this value
+    var total_len = 25;
+    if (text.length > total_len){
+      text = text.slice(0, total_len)
+    }
+    if (text.length < total_len){
+      var diff_len = total_len - text.length+1
+      text = text+Array(diff_len).join("*")
+    }
     if (text.length > threshold) {
       text = text.replace(new RegExp(".(?=.{0," + (text.length-threshold-1) + "}$)", "g"), '*');
     }
