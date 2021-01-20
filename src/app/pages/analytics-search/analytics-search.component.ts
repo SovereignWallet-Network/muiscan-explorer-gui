@@ -88,9 +88,7 @@ export class AnalyticsSearchComponent implements OnInit, OnDestroy {
 
     // Strip whitespace from search text
     this.currentSearchQuery = this.searchQuery.trim();
-    // console.log('search sachin:')
-    // const sam = this.getPosts()
-    // console.log('search sa:', sam)
+    
 
     if (this.currentSearchQuery !== '') {
 

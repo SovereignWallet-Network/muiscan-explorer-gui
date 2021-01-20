@@ -172,7 +172,7 @@
                                   <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                       <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                                       <td class="is-hidden-mobile">
-                                        <a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.sender.attributes.address }}" class="address-overview-format">
+                                        <a class="address-overview-format">
                                           <span class="icon">
                                               <i class="fa fa-address-card" aria-hidden="true"></i>
                                           </span>
@@ -180,7 +180,7 @@
                                         </a>
                                       </td>
                                       <td>
-                                        <a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.destination.attributes.address }}" class="address-overview-format">
+                                        <a class="address-overview-format">
                                           <span class="icon">
                                               <i class="fa fa-address-card" aria-hidden="true"></i>
                                           </span>

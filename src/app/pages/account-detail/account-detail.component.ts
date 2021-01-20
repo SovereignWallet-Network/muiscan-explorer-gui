@@ -125,32 +125,7 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
   ) { }
 
 
-  // ngDoCheck() {
-
-  //   this.account$ = this.activatedRoute.paramMap.pipe(
-  //     switchMap((params: ParamMap) => {
-  //       if(params.get('id') !== this.accountId){
-  //         this.accountId = params.get('id');
-  //         return this.accountService.get(params.get('id'));
-
-  //       }
-  //       console.log('loose:', this.accountId)
-  //     })
-  //   );
-
-  
-
-
-    // if(this.accountId !== this.accountId){
-    //   console.log('do check')
-
-    // }else{
-    //   console.log('no need', this.accountId)
-
-    // }
-
-  
-  //}
+ 
 
   ngOnInit() {
     this.resourceNotFound = false;
@@ -237,14 +212,11 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
       let bals;
       this.account$ = this.activatedRoute.paramMap.pipe(
         switchMap((params: ParamMap) => {
-          console.log('jsonSdkApiRootUrl: ',this.appConfigService.getNetworkSdkApiUrlRoot())
           this.accountId = params.get('id');
           this.httpClient.get(`${this.appConfigService.getNetworkSdkApiUrlRoot()}/getAccountDetails?did=${this.accountId}`).subscribe((data) => {
             this.balance = data;
-            //console.log('api1',data)
             if(this.balance.address == null){
               this.taleFound = true;
-              console.log('access granted', this.taleFound)
 
             }
            },error => {
@@ -252,7 +224,6 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
             
           })
           this.httpClient.get(`${this.appConfigService.getNetworkApiUrlRoot()}/balances/transfer_history/${this.accountId}`).subscribe((datas) => {
-            //console.log('api2',datas)
             this.trnx = datas;
             
           })
@@ -364,13 +335,11 @@ export class AccountDetailComponent implements OnInit, OnDestroy {
 
   public formatBalance(balance: number) {
 
-  //  console.log('test', balance)
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
   public formatName(text) {
 
-    console.log('test', text)
     var threshold = 11; // Start replacing with * after this value
     if (text.length > threshold) {
       text = text.replace(new RegExp(".(?=.{0," + (text.length-threshold-1) + "}$)", "g"), '*');

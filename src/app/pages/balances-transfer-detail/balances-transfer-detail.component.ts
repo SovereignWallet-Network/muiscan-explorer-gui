@@ -72,7 +72,6 @@ export class BalancesTransferDetailComponent implements OnInit, OnDestroy {
 
   public formatName(text) {
 
-    console.log('test', text)
     var threshold = 11; // Start replacing with * after this value
     if (text.length > threshold) {
       text = text.replace(new RegExp(".(?=.{0," + (text.length-threshold-1) + "}$)", "g"), '*');

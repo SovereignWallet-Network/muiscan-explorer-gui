@@ -109,7 +109,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       page: {number: 0}
     }).subscribe(balanceTransfers => {
       this.balanceTransfers = balanceTransfers
-      // console.log('samy:',this.balanceTransfers)
 
     });
 
@@ -130,7 +129,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public formatName(text) {
 
-    console.log('test', text)
     var threshold = 11; // Start replacing with * after this value
     if (text.length > threshold) {
       text = text.replace(new RegExp(".(?=.{0," + (text.length-threshold-1) + "}$)", "g"), '*');

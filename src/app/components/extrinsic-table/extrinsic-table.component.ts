@@ -58,7 +58,6 @@ export class ExtrinsicTableComponent implements OnInit {
     this.taleFound = false;
 
     if (this.extrinsicId) {
-      console.log('hey', this.extrinsicId)
 
        this.extrinsicService.get(this.extrinsicId).subscribe(extrinsic => {
          this.extrinsic = extrinsic
@@ -66,7 +65,6 @@ export class ExtrinsicTableComponent implements OnInit {
 
     // this.httpClient.get(`https://registerdid.metabit.exchange:8443/getDIDFromAccID?accid=5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY`).subscribe((data) => {
     //   this.balance = data;
-    //   console.log('api1',this.balance)
     //   this.taleFound = true;
     //  },error => {
     //   this.taleFound = true;
