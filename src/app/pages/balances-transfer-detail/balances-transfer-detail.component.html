@@ -22,12 +22,12 @@
                             <tr>
                               <td>{{ 'BalanceTransfer.Sender' | translate }}</td>
                               <td>
-                                  <a *ngIf="balanceTransfer.attributes.sender" class="address-mobile-format">{{ formatName(balanceTransfer.attributes.sender.attributes.address)}}</a>
+                                  <p *ngIf="balanceTransfer.attributes.sender" class="address-mobile-format">{{ formatName(balanceTransfer.attributes.sender.attributes.address)}}</p>
                               </td>
                             </tr>
                             <tr>
                               <td>{{ 'BalanceTransfer.Destination' | translate }}</td>
-                              <td><a class="address-mobile-format">{{ formatName(balanceTransfer.attributes.destination.attributes.address)}}</a></td>
+                              <td><p class="address-mobile-format">{{ formatName(balanceTransfer.attributes.destination.attributes.address)}}</p></td>
                             </tr>
                             <tr>
                               <td>{{ 'BalanceTransfer.Value' | translate }}</td>

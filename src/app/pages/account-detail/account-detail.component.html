@@ -365,8 +365,8 @@
                               <!-- <td><a routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.attributes.sender.attributes.address}}</a></td>
                               <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.destination.attributes.address}}</a></td>
                           -->
-                              <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.sender.attributes.address }}">{{ formatName(extrinsic.attributes.sender.attributes.address)}}</a></td>
-                              <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.destination.attributes.address }}">{{ formatName(extrinsic.attributes.destination.attributes.address)}}</a></td>
+                              <td><p>{{ formatName(extrinsic.attributes.sender.attributes.address)}}</p></td>
+                              <td class="is-hidden-mobile"><p>{{ formatName(extrinsic.attributes.destination.attributes.address)}}</p></td>
                               <td>{{ formatBalance(extrinsic.attributes.value) }}</td>
                               <td>{{ extrinsic.attributes.datetime }}</td>
                               <td class="is-hidden-mobile">

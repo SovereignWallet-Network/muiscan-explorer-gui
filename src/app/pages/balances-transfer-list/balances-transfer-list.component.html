@@ -31,8 +31,8 @@
                                 <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                   <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                                   <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ balanceTransfer.attributes.block_id }}">{{ balanceTransfer.attributes.block_id }}</a></td>
-                                  <td class="is-hidden-mobile"><a class="address-format">{{formatName(balanceTransfer.attributes.sender.attributes.address)}}</a></td>
-                                  <td><a class="address-format">{{formatName(balanceTransfer.attributes.destination.attributes.address)}}</a></td>
+                                  <td class="is-hidden-mobile"><p class="address-format">{{formatName(balanceTransfer.attributes.sender.attributes.address)}}</p></td>
+                                  <td><p class="address-format">{{formatName(balanceTransfer.attributes.destination.attributes.address)}}</p></td>
                                   <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
                                   <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/balances/transfer/{{ balanceTransfer.id }}">{{ 'BalanceTransferList.Details' | translate }}</a></td>
                                 </tr>

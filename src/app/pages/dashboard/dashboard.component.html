@@ -172,20 +172,20 @@
                                   <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                       <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                                       <td class="is-hidden-mobile">
-                                        <a class="address-overview-format">
+                                        <p class="address-overview-format">
                                           <span class="icon">
                                               <i class="fa fa-address-card" aria-hidden="true"></i>
                                           </span>
                                           {{ formatName(balanceTransfer.attributes.sender.attributes.address) }}
-                                        </a>
+                                        </p>
                                       </td>
                                       <td>
-                                        <a class="address-overview-format">
+                                        <p class="address-overview-format">
                                           <span class="icon">
                                               <i class="fa fa-address-card" aria-hidden="true"></i>
                                           </span>
                                           {{ formatName(balanceTransfer.attributes.destination.attributes.address)}}
-                                        </a>
+                                        </p>
                                       </td>
                                       <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                                       <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/balances/transfer/{{ balanceTransfer.id }}">{{ 'DashBoard.Details' | translate }}</a></td>
