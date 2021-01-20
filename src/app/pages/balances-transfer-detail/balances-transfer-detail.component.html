@@ -22,12 +22,12 @@
                             <tr>
                               <td>{{ 'BalanceTransfer.Sender' | translate }}</td>
                               <td>
-                                  <a *ngIf="balanceTransfer.attributes.sender" routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.sender.attributes.address }}" class="address-mobile-format"><app-address [account]="balanceTransfer.attributes.sender"></app-address></a>
+                                  <a *ngIf="balanceTransfer.attributes.sender" routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.sender.attributes.address }}" class="address-mobile-format">{{ formatName(balanceTransfer.attributes.sender.attributes.address)}}</a>
                               </td>
                             </tr>
                             <tr>
                               <td>{{ 'BalanceTransfer.Destination' | translate }}</td>
-                              <td><a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.destination?.attributes.address }}" class="address-mobile-format"><app-address [account]="balanceTransfer.attributes.destination"></app-address></a></td>
+                              <td><a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.destination?.attributes.address }}" class="address-mobile-format">{{ formatName(balanceTransfer.attributes.destination.attributes.address)}}</a></td>
                             </tr>
                             <tr>
                               <td>{{ 'BalanceTransfer.Value' | translate }}</td>
