@@ -85,6 +85,20 @@ export class BalancesTransferListComponent implements OnInit, OnDestroy {
     return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
+  public formatName(text) {
+
+    console.log('test', text)
+    var threshold = 11; // Start replacing with * after this value
+    if (text.length > threshold) {
+      text = text.replace(new RegExp(".(?=.{0," + (text.length-threshold-1) + "}$)", "g"), '*');
+    }
+
+    return text
+
+  }
+
+  
+
   ngOnDestroy() {
     // Will clear when component is destroyed e.g. route is navigated away from.
     this.networkSubscription.unsubscribe();
