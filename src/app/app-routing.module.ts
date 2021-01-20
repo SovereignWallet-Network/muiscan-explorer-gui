@@ -116,7 +116,9 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent},
       { path: 'block', component: BlockListComponent },
       { path: 'block/:id', component: BlockDetailComponent },
-      { path: 'transaction', component: TransactionListComponent},
+      // { path: 'transaction', component: TransactionListComponent},
+      { path: 'transaction', component: BalancesTransferListComponent},
+
       { path: 'transaction/:id', component: TransactionDetailComponent},
       { path: 'inherent', component: InherentListComponent},
       { path: 'inherent/:id', component: InherentDetailComponent},
